@@ -1,0 +1,33 @@
+---
+interface Props {
+  alt: string
+  srcLight: string
+  srcDark: string
+  width?: string | number
+  height?: string | number
+  class?: string
+}
+
+const {
+  alt,
+  srcLight,
+  srcDark,
+  width,
+  height,
+  class: className = '',
+} = Astro.props
+---
+<picture>
+  <!-- 深色模式 -->
+  <source srcset={srcDark} media="(prefers-color-scheme: dark)" />
+  <!-- 浅色模式（默认） -->
+  <img
+    src={`https://h8DxKfmAPhn8O0p3.public.blob.vercel-storage.com${srcLight}`}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading="lazy"
+    decoding="async"
+  />
+</picture>
