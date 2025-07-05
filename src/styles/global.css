@@ -1,0 +1,7 @@
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@utility unset {
+    display: unset
+}
