@@ -1,0 +1,6 @@
+---
+const pathname = Astro.url.pathname;
+const isPagesRoute = pathname.startsWith("/docs/pages/");
+---
+
+{isPagesRoute && <slot />}

@@ -15,7 +15,15 @@ export default defineConfig({
             imports: [
                 {
                     "./src/components/image.astro": [['default', 'Image']],
-                }
+                    "./src/components/app-only.astro": [['default', 'AppOnly']],
+                    "./src/components/page-only.astro": [['default', 'PagesOnly']],
+                },
+                // icon component
+                {
+                    "./src/components/icons/check.astro": [['default', 'Check']],
+                    "./src/components/icons/cross.astro": [['default', 'Cross']],
+                },
+
             ]
         }),
         starlight({
@@ -30,7 +38,7 @@ export default defineConfig({
             ],
             customCss: [
                 './src/styles/global.css'
-            ]
+            ],
         }),
         mdx(),
     ],
