@@ -4,8 +4,8 @@ interface Props {
   alt: string;
   srcLight: string;
   srcDark: string;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
   class?: string;
 }
 
@@ -18,20 +18,22 @@ const {
   class: className = "",
 } = Astro.props;
 const IMAGE_BASEURL = import.meta.env.PUBLIC_NEXT_IMAGE_BASE_URL;
+const w = typeof width === "string" ? parseInt(width) : width;
+const h = typeof height === "string" ? parseInt(height) : height;
 ---
 
 <AstroImage
   src={`${IMAGE_BASEURL}${srcDark}`}
   alt={alt}
-  width={width}
-  height={height}
+  width={w}
+  height={h}
   class:list={["hidden dark:unset", className]}
 />
 
 <AstroImage
   src={`${IMAGE_BASEURL}${srcLight}`}
   alt={alt}
-  width={width}
-  height={height}
+  width={w}
+  height={h}
   class:list={["dark:hidden", className]}
 />
